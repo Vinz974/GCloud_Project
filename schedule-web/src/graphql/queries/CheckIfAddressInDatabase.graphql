@@ -1,0 +1,3 @@
+query CheckIfAddressInDatabase($address:String!) {
+    CheckIfAddressInDatabase(address:$address)
+}

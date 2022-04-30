@@ -1,0 +1,3 @@
+mutation AddBooking($date:String!, $address:String!) {
+    AddBooking(date:$date, address:$address)
+}

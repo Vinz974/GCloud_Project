@@ -1,0 +1,3 @@
+mutation AddUser($address:String!,$email:String!) {
+    AddUser(address:$address, email:$email)
+}
