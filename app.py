@@ -5,7 +5,7 @@ import pandas as pd
 app = Flask(__name__)
 classif_model = load("country_prediction_trained_model.joblib")
 lat_long_country = pd.read_csv("lat_long_country.csv")
-all_info_for_country = None
+every_score_per_country = pd.read_csv("every_score_per_country.csv")
 
 @app.route('/')
 def hello_world():
