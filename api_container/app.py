@@ -22,18 +22,23 @@ def get_country(lat=0, long=0):
 @app.route("/get_list_of_country/", methods=["GET"])
 def get_list_of_country():
     list_of_country = list(lat_long_country["Country/Region"].unique())
-    str_of_country = ""
+
+    response = {}
     for country in list_of_country:
-        str_of_country = str_of_country + country + ","
-    return str_of_country
+        lat = lat_long_country[lat_long_country["Country/Region"] == country].iloc[0][
+            "Lat"
+        ]
+        long = lat_long_country[lat_long_country["Country/Region"] == country].iloc[0][
+            "Long"
+        ]
+
+        response[country] = {"lat": lat, "long": long}
+
+    return jsonify(response)
 
 
 @app.route("/get_country_info/<country>", methods=["GET"])
 def get_country_info(country=None):
-    print(
-        every_score_per_country[every_score_per_country["Country/Region"] == "Andorra"]
-    )
-    print("-----------")
     if not country:
         return "Country is None"
     else:
